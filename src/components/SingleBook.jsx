@@ -1,21 +1,24 @@
+import { Component } from 'react';
 import {Card, ListGroup, ListGroupItem, Col} from 'react-bootstrap'
 
-function SingleBook({data}) {
+class SingleBook extends Component {
+    render(){
     return(
-        <Col xs='3 mb-1' key={data.asin}>
+        <Col xs='3 mb-1' key={this.props.data.asin}>
             <Card className='h-100'>
-                <Card.Img variant="top" src={data.img} />
+                <Card.Img variant="top" src={this.props.data.img} />
                 <Card.Body>
-                    <Card.Title>{data.title}</Card.Title>
+                    <Card.Title>{this.props.data.title}</Card.Title>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem>{data.category}</ListGroupItem>
-                    <ListGroupItem>{data.price}</ListGroupItem>
-                    <ListGroupItem>{data.asin}</ListGroupItem>
+                    <ListGroupItem>{this.props.data.category}</ListGroupItem>
+                    <ListGroupItem>{this.props.data.price}</ListGroupItem>
+                    <ListGroupItem>{this.props.data.asin}</ListGroupItem>
                 </ListGroup>
             </Card>
         </Col>
     )
+    }
     }
 
 export default SingleBook
