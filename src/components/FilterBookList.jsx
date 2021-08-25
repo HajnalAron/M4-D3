@@ -15,7 +15,7 @@ class FilterBookList extends Component{
         this.setState({
             categories:[fantasy, history, romance, scifi, horror,],
             search: e.target.value,
-            filteredBooks:[this.state.categories.map(category=> category.filter(book => book.title.toLowerCase().includes(this.state.search.toLowerCase())))]
+            filteredBooks:this.state.categories.map(category=> category.filter(book => book.title.toLowerCase().includes(this.state.search.toLowerCase())))
         })   
     }
     
@@ -23,7 +23,7 @@ class FilterBookList extends Component{
         return(
             <>
             <input type="text" onKeyUp={(e)=>{this.search(e)}}/>
-            {this.state.filteredBooks.map((category)=>{ if (category != []){return(<BookList category={category}/>)}})}
+            {this.state.filteredBooks.map(category=>{return(<BookList category={category}/>)})}
             </>   
         )
     }
